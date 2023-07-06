@@ -1,0 +1,17 @@
+<form [formGroup]="reimbursementForm">
+    <input type="text" formControlName="phoneNumber" id="phoneNumber" for="floatingInput" class="form-control phone"
+        autocomplete="off" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+        placeholder="Phone Number" />
+
+    <p *ngIf="Validation('phoneNumber','required')" class="text-danger p-0 alert">
+        Please enter a Phone number
+    </p>
+     <p *ngIf="Validation('phoneNumber','pattern')"
+        class="text-danger p-0 alert">
+        Phone number allows only numbers
+    </p>
+    <p *ngIf="(Validation('phoneNumber','minlength')) && !(Validation('phoneNumber','pattern'))"
+        class="text-danger p-0 alert">
+        Phone number should contain a minimum of 10 numbers
+    </p>
+</form>
